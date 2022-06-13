@@ -6,26 +6,22 @@ import styles from "./Card.module.scss";
 // components
 import Button from "../Button/Button";
 
-// description
-const description =
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?";
-
-function Card() {
+function Card({ name, picture, occupation, likes, description, hobbies }) {
   const [readmore, setReadmore] = useState(false);
 
   return (
     <div className={styles.container}>
-      <img src="https://picsum.photos/200/300" alt="actor" />
+      <img src={picture} alt="actor" />
       <div className={styles.content}>
-        <h3>Leondardo Dicaprio</h3>
+        <h3>{name}</h3>
         <div>
-          <p>Actor & Writer</p>
-          <span>47</span>
+          <p>{occupation}</p>
+          <span>{likes}</span>
         </div>
         <ul>
-          <li>Traveling</li>
-          <li>Reading</li>
-          <li>Crossword puzzles</li>
+          {hobbies.map((hobby) => (
+            <li key={hobby}>{hobby}</li>
+          ))}
         </ul>
         <p>{readmore ? description : description.slice(0, 50)}</p>
         <span onClick={() => setReadmore(!readmore)}>Read more</span>

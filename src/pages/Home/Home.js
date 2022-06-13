@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 // utils
@@ -13,12 +13,21 @@ import { Card, Button, Modal, Alert } from "../../components";
 // contexts
 import { Context } from "../../contexts/context";
 
+// api functions
+import { getActors } from "../../api/api";
+
 function Home() {
   // context
   const { modalOpen, setModalOpen, alert, setAlert } = useContext(Context);
 
   // navigate
   const navigate = useNavigate();
+
+  // get actors
+  const [actors, setActors] = useState([]);
+  useEffect(() => {
+    getActors().then((res) => setActors(res));
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -41,14 +50,17 @@ function Home() {
           </Button>
         </div>
         <div className={styles.cards}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {actors?.map((actor) => (
+            <Card
+              key={actor.id}
+              name={actor.name}
+              picture={actor.picture}
+              occupation={actor.occupation}
+              likes={actor.likes}
+              description={actor.description}
+              hobbies={actor.hobbies}
+            />
+          ))}
         </div>
         <div className={styles.add}>
           <Button onClick={() => navigate("./add")} medium primary>
