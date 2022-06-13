@@ -1,19 +1,6 @@
 {
   "actors": [
     {
-      "id": 1,
-      "name": "Dell Udeyasatest",
-      "picture": "https://picsum.photos/200/300",
-      "occupation": "Marketing Manager",
-      "likes": 47,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?",
-      "hobbies": [
-        "Reading",
-        "Dancing",
-        "Watching movies"
-      ]
-    },
-    {
       "id": 2,
       "name": "Munmro Labus",
       "picture": "https://picsum.photos/200/300",
@@ -92,43 +79,15 @@
       ]
     },
     {
-      "id": 8,
-      "name": "Charis Fehner",
+      "name": "test",
       "picture": "https://picsum.photos/200/300",
-      "occupation": "Staff Accountant II",
-      "likes": 23,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?",
+      "occupation": "test",
+      "likes": 80,
+      "description": "test",
       "hobbies": [
-        "Reading",
-        "Dancing",
-        "Watching movies"
-      ]
-    },
-    {
-      "id": 9,
-      "name": "Melesa Snasdell",
-      "picture": "https://picsum.photos/200/300",
-      "occupation": "Programmer Analyst IV",
-      "likes": 52,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?",
-      "hobbies": [
-        "Reading",
-        "Dancing",
-        "Watching movies"
-      ]
-    },
-    {
-      "id": 10,
-      "name": "Lorna Ruse",
-      "picture": "https://picsum.photos/200/300",
-      "occupation": "Information Systems",
-      "likes": 13,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?",
-      "hobbies": [
-        "Reading",
-        "Dancing",
-        "Watching movies"
-      ]
+        "testt"
+      ],
+      "id": 8
     }
   ]
 }

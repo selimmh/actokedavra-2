@@ -76,18 +76,39 @@ function Home() {
           ))}
         </div>
         <div className={styles.add}>
-          <Button onClick={() => navigate("./add")} medium primary>
-            Add new actor
-          </Button>
+          {actors?.length <= 6 ? (
+            <Button onClick={() => navigate("./add")} medium primary>
+              Add new actor
+            </Button>
+          ) : (
+            <Button
+              onClick={() =>
+                setAlert({
+                  type: "success",
+                  message: "Actor added successfully.",
+                })
+              }
+              medium
+              primary
+            >
+              Add new actor
+            </Button>
+          )}
         </div>
       </div>
+
+      {/* modal */}
       {modalOpen && (
         <>
           <Modal>hi from modal</Modal>
           <RemoveScroll />
         </>
       )}
+
+      {/* alert */}
       {alert && <Alert type={alert.type} message={alert.message}></Alert>}
+
+      {/* popup */}
       {popupOpen && (
         <>
           <Popup>Hello from popup</Popup>

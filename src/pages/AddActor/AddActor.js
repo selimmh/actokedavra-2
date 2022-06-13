@@ -63,8 +63,6 @@ function AddActor() {
   // navigate
   const navigate = useNavigate();
 
-  console.log(actor);
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>

@@ -9,6 +9,9 @@ import Button from "../Button/Button";
 // context
 import { Context } from "../../contexts/context";
 
+// icons
+import { RiCloseLine } from "react-icons/ri";
+
 function Card({
   name,
   picture,
@@ -51,7 +54,9 @@ function Card({
           Edit
         </Button>
       </div>
-      <button onClick={onDelete} className={styles.close}></button>
+      <button onClick={onDelete} className={styles.close}>
+        <RiCloseLine />
+      </button>
     </div>
   );
 }
