@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 
 // styles
@@ -7,18 +7,30 @@ import styles from "./AddActor.module.scss";
 // components
 import { Button } from "../../components";
 
+// api functions
+import { addActor } from "../../api/api";
+
+// context
+import { Context } from "../../contexts/context";
+
 function AddActor() {
+  // context
+  const { alert, setAlert } = useContext(Context);
+
   // actor state
   const [actor, setActor] = useState({
     name: "",
+    picture: "https://picsum.photos/200/300",
     occupation: "",
-    hobbies: "",
+    likes: Math.floor(Math.random() * 100) + 1,
     description: "",
+    hobbies: [],
   });
 
   //   handle change
   const handleChange = (e) => {
     setActor({ ...actor, [e.target.name]: e.target.value });
+    setClicked(false);
   };
 
   // submit click listener
@@ -33,17 +45,25 @@ function AddActor() {
       actor.hobbies.length &&
       actor.description.length
     ) {
-      // add actor
+      addActor(actor).then((res) => {
+        if (res.status === 200) {
+          setAlert({
+            type: "success",
+            message: "Successfully added to cart",
+          });
+          navigate("/");
+        }
+      });
     }
   };
 
   // handle blur
-  const handleBlur = () => {
-    setClicked(false);
-  };
+  const handleBlur = () => {};
 
   // navigate
   const navigate = useNavigate();
+
+  console.log(actor);
 
   return (
     <div className={styles.container}>
@@ -81,15 +101,17 @@ function AddActor() {
           {/* error */}
           {!actor.hobbies.length && clicked && <span>Field required</span>}
 
-          {/* hobbies */}
-          <label>Hobbies</label>
+          {/* hobbies (comma seperated) */}
+          <label>Hobbies (comma seperated)</label>
           <input
             className={clicked && !actor.hobbies ? styles.error : ""}
             type="text"
             name="hobbies"
             value={actor.hobbies}
             id="hobbies"
-            onChange={handleChange}
+            onChange={(e) =>
+              setActor({ ...actor, hobbies: e.target.value.split(",") })
+            }
             onBlur={handleBlur}
           />
           {/* error */}
