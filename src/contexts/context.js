@@ -2,10 +2,14 @@ import { createContext, useState } from "react";
 export const Context = createContext();
 
 const StateProvider = (props) => {
+  // modal state
   const [modalOpen, setModalOpen] = useState(false);
 
-  const [alert, setAlert] = useState("");
+  // popup state
+  const [popupOpen, setPopupOpen] = useState(false);
 
+  // alert state
+  const [alert, setAlert] = useState("");
   if (alert) {
     setTimeout(() => {
       setAlert(null);
@@ -17,8 +21,12 @@ const StateProvider = (props) => {
       value={{
         modalOpen,
         setModalOpen,
+
         alert,
         setAlert,
+
+        popupOpen,
+        setPopupOpen,
       }}
     >
       {props.children}

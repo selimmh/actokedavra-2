@@ -8,17 +8,18 @@ import { RemoveScroll } from "react-remove-scroll";
 import styles from "./Home.module.scss";
 
 // components
-import { Card, Button, Modal, Alert } from "../../components";
+import { Card, Button, Modal, Alert, Popup } from "../../components";
 
 // contexts
 import { Context } from "../../contexts/context";
 
 // api functions
-import { getActors } from "../../api/api";
+import { getActors, deleteActor } from "../../api/api";
 
 function Home() {
   // context
-  const { modalOpen, setModalOpen, alert, setAlert } = useContext(Context);
+  const { modalOpen, setModalOpen, alert, setAlert, popupOpen, setPopupOpen } =
+    useContext(Context);
 
   // navigate
   const navigate = useNavigate();
@@ -28,6 +29,12 @@ function Home() {
   useEffect(() => {
     getActors().then((res) => setActors(res));
   }, []);
+
+  // actor to delete
+  const [actorToDelete, setActorToDelete] = useState(null);
+
+  // actor to edit
+  const [actorToEdit, setActorToEdit] = useState(null);
 
   return (
     <div className={styles.container}>
@@ -59,6 +66,7 @@ function Home() {
               likes={actor.likes}
               description={actor.description}
               hobbies={actor.hobbies}
+              onDelete={() => deleteActor(actor.id)}
             />
           ))}
         </div>
@@ -75,6 +83,12 @@ function Home() {
         </>
       )}
       {alert && <Alert type={alert.type} message={alert.message}></Alert>}
+      {popupOpen && (
+        <>
+          <Popup>Hello from popup</Popup>
+          <RemoveScroll />
+        </>
+      )}
     </div>
   );
 }

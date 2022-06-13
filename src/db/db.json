@@ -129,20 +129,6 @@
         "Dancing",
         "Watching movies"
       ]
-    },
-    {
-      "name": "test",
-      "picture": "https://picsum.photos/200/300",
-      "occupation": "test",
-      "likes": 10,
-      "description": "test",
-      "hobbies": [
-        "test",
-        "test",
-        "test",
-        "test"
-      ],
-      "id": 11
     }
   ]
 }

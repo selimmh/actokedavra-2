@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // styles
 import styles from "./Card.module.scss";
@@ -6,7 +6,22 @@ import styles from "./Card.module.scss";
 // components
 import Button from "../Button/Button";
 
-function Card({ name, picture, occupation, likes, description, hobbies }) {
+// context
+import { Context } from "../../contexts/context";
+
+function Card({
+  name,
+  picture,
+  occupation,
+  likes,
+  description,
+  hobbies,
+  onDelete,
+}) {
+  // context
+  const { popupOpen, setPopupOpen } = useContext(Context);
+
+  // read more state
   const [readmore, setReadmore] = useState(false);
 
   return (
@@ -29,7 +44,7 @@ function Card({ name, picture, occupation, likes, description, hobbies }) {
           Edit
         </Button>
       </div>
-      <button className={styles.close}></button>
+      <button onClick={onDelete} className={styles.close}></button>
     </div>
   );
 }
