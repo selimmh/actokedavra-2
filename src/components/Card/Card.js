@@ -17,12 +17,19 @@ function Card({
   description,
   hobbies,
   onDelete,
+  onEdit,
 }) {
   // context
   const { popupOpen, setPopupOpen } = useContext(Context);
 
   // read more state
   const [readmore, setReadmore] = useState(false);
+
+  // actor to delete
+  const [actorToDelete, setActorToDelete] = useState(null);
+
+  // actor to edit
+  const [actorToEdit, setActorToEdit] = useState(null);
 
   return (
     <div className={styles.container}>
@@ -40,7 +47,7 @@ function Card({
         </ul>
         <p>{readmore ? description : description.slice(0, 50)}</p>
         <span onClick={() => setReadmore(!readmore)}>Read more</span>
-        <Button secondary small>
+        <Button onClick={onEdit} secondary small>
           Edit
         </Button>
       </div>

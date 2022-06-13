@@ -8,6 +8,12 @@ const StateProvider = (props) => {
   // popup state
   const [popupOpen, setPopupOpen] = useState(false);
 
+  // actor to delete
+  const [actorToDelete, setActorToDelete] = useState(null);
+
+  // actor to edit
+  const [actorToEdit, setActorToEdit] = useState(null);
+
   // alert state
   const [alert, setAlert] = useState("");
   if (alert) {
@@ -27,6 +33,12 @@ const StateProvider = (props) => {
 
         popupOpen,
         setPopupOpen,
+
+        actorToDelete,
+        setActorToDelete,
+
+        actorToEdit,
+        setActorToEdit,
       }}
     >
       {props.children}

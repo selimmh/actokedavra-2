@@ -18,8 +18,15 @@ import { getActors, deleteActor } from "../../api/api";
 
 function Home() {
   // context
-  const { modalOpen, setModalOpen, alert, setAlert, popupOpen, setPopupOpen } =
-    useContext(Context);
+  const {
+    modalOpen,
+    setModalOpen,
+    alert,
+    setAlert,
+    popupOpen,
+    setPopupOpen,
+    setActorToEdit,
+  } = useContext(Context);
 
   // navigate
   const navigate = useNavigate();
@@ -29,12 +36,6 @@ function Home() {
   useEffect(() => {
     getActors().then((res) => setActors(res));
   }, []);
-
-  // actor to delete
-  const [actorToDelete, setActorToDelete] = useState(null);
-
-  // actor to edit
-  const [actorToEdit, setActorToEdit] = useState(null);
 
   return (
     <div className={styles.container}>
@@ -67,6 +68,10 @@ function Home() {
               description={actor.description}
               hobbies={actor.hobbies}
               onDelete={() => deleteActor(actor.id)}
+              onEdit={() => {
+                navigate(`/edit/${actor.id}`);
+                setActorToEdit(actor);
+              }}
             />
           ))}
         </div>

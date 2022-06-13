@@ -23,8 +23,8 @@ export const addActor = async (actor) => {
   }
 };
 
-// update actor
-export const updateActor = async (actor) => {
+// edit actor
+export const editActor = async (actor) => {
   try {
     const response = await axios.put(baseUrl + "actors/" + actor.id, actor);
     return response.data;
