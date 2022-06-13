@@ -3,7 +3,7 @@
 
 .container {
   background: white;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -13,6 +13,7 @@
   width: 100%;
   padding: 1.25rem;
   border: 1px solid $color-line;
+  z-index: 40;
 }
 
 .logo {
