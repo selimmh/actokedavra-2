@@ -48,6 +48,7 @@
         border-radius: 10px;
         background-color: $color-input;
         padding: 1rem;
+        transition: all 1s ease-in-out;
       }
 
       > textarea {
@@ -76,4 +77,5 @@
 .error {
   background-color: #ffe5f2 !important;
   border: 2px solid #ed2e7e !important;
+  transition: all 0.3s ease-in-out;
 }

@@ -54,7 +54,7 @@
     },
     {
       "id": 6,
-      "name": "Garrott Plumm",
+      "name": "sad",
       "picture": "https://picsum.photos/200/300",
       "occupation": "Database Admin I",
       "likes": 95,
@@ -77,17 +77,6 @@
         "Dancing",
         "Watching movies"
       ]
-    },
-    {
-      "name": "test",
-      "picture": "https://picsum.photos/200/300",
-      "occupation": "test",
-      "likes": 80,
-      "description": "test",
-      "hobbies": [
-        "testt"
-      ],
-      "id": 8
     }
   ]
 }

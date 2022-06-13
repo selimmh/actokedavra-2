@@ -1,6 +1,26 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
+// slide up animation
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// fade in animation
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   position: fixed;
   inset: 0;
@@ -8,6 +28,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .backdrop {
@@ -38,6 +59,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: slideUpFromBottom 0.3s ease-in-out;
   }
 
   > button {

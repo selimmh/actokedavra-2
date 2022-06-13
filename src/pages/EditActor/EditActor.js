@@ -13,6 +13,9 @@ import { editActor } from "../../api/api";
 // context
 import { Context } from "../../contexts/context";
 
+// page transition
+import { motion } from "framer-motion";
+
 function EditActor() {
   // context
   const { alert, setAlert, actorToEdit } = useContext(Context);
@@ -65,83 +68,96 @@ function EditActor() {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1>Add new actor</h1>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={{
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+      }}
+    >
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <h1>Add new actor</h1>
 
-        {/* form */}
-        {/* name */}
-        <div>
-          <label>Name</label>
-          <input
-            className={clicked && !actor.name ? styles.error : ""}
-            type="text"
-            name="name"
-            value={actor.name}
-            id="name"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
+          {/* form */}
+          {/* name */}
+          <div>
+            <label>Name</label>
+            <input
+              className={clicked && !actor.name ? styles.error : ""}
+              type="text"
+              name="name"
+              value={actor.name}
+              id="name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
 
-          {/* error */}
-          {!actor.name.length && clicked && <span>Field required</span>}
+            {/* error */}
+            {!actor.name.length && clicked && <span>Field required</span>}
 
-          {/* occupation */}
-          <label>Occupation besides acting</label>
-          <input
-            className={clicked && !actor.occupation ? styles.error : ""}
-            type="text"
-            name="occupation"
-            value={actor.occupation}
-            id="occupation"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {/* error */}
-          {!actor.hobbies.length && clicked && <span>Field required</span>}
+            {/* occupation */}
+            <label>Occupation besides acting</label>
+            <input
+              className={clicked && !actor.occupation ? styles.error : ""}
+              type="text"
+              name="occupation"
+              value={actor.occupation}
+              id="occupation"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {/* error */}
+            {!actor.hobbies.length && clicked && <span>Field required</span>}
 
-          {/* hobbies (comma seperated) */}
-          <label>Hobbies (comma seperated)</label>
-          <input
-            className={clicked && !actor.hobbies ? styles.error : ""}
-            type="text"
-            name="hobbies"
-            value={actor.hobbies}
-            id="hobbies"
-            onChange={(e) =>
-              setActor({ ...actor, hobbies: e.target.value.split(",") })
-            }
-            onBlur={handleBlur}
-          />
-          {/* error */}
-          {!actor.hobbies.length && clicked && <span>Field required</span>}
+            {/* hobbies (comma seperated) */}
+            <label>Hobbies (comma seperated)</label>
+            <input
+              className={clicked && !actor.hobbies ? styles.error : ""}
+              type="text"
+              name="hobbies"
+              value={actor.hobbies}
+              id="hobbies"
+              onChange={(e) =>
+                setActor({ ...actor, hobbies: e.target.value.split(",") })
+              }
+              onBlur={handleBlur}
+            />
+            {/* error */}
+            {!actor.hobbies.length && clicked && <span>Field required</span>}
 
-          {/* description */}
-          <label>Short description</label>
-          <input
-            className={clicked && !actor.description ? styles.error : ""}
-            type="text"
-            name="description"
-            value={actor.description}
-            id="desciption"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {/* error */}
-          {!actor.description.length && clicked && <span>Field required</span>}
-        </div>
+            {/* description */}
+            <label>Short description</label>
+            <input
+              className={clicked && !actor.description ? styles.error : ""}
+              type="text"
+              name="description"
+              value={actor.description}
+              id="desciption"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {/* error */}
+            {!actor.description.length && clicked && (
+              <span>Field required</span>
+            )}
+          </div>
 
-        <div className={styles.actions}>
-          <Button onClick={() => handleSubmit()} primary medium>
-            Update
-          </Button>
+          <div className={styles.actions}>
+            <Button onClick={() => handleSubmit()} primary medium>
+              Update
+            </Button>
 
-          <button onClick={() => navigate("/")}>
-            <span>I changed my mind</span>
-          </button>
+            <button onClick={() => navigate("/")}>
+              <span>I changed my mind</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
