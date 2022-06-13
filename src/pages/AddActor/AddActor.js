@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./AddActor.module.scss";
 
 function AddActor() {
-  return <div className={styles.container}>AddActor</div>;
+  return <div className={styles.container}>Actor</div>;
 }
 
 export default AddActor;

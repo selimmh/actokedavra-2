@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // styles
 import styles from "./Alert.module.scss";
 
-function Alert() {
-  return <div className={styles.container}>Alert</div>;
+function Alert({ type, message }) {
+  return (
+    <div className={styles.container}>
+      {/* content */}
+      <div className={styles.content}>{message}</div>
+    </div>
+  );
 }
 
 export default Alert;

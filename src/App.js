@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // pages
-import { Home, AddActor, EditActor, Test } from "./pages";
+import { Home, AddActor, EditActor, Test, Error } from "./pages";
 
 // components
 import { Header, Footer } from "./components";
@@ -16,10 +16,11 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/add" element={<AddActor />} />
           <Route path="/edit/:id" element={<EditActor />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </Router>

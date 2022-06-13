@@ -4,11 +4,11 @@ export const Context = createContext();
 const StateProvider = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const [notification, setNotification] = useState("");
+  const [alert, setAlert] = useState("");
 
-  if (notification) {
+  if (alert) {
     setTimeout(() => {
-      setNotification(null);
+      setAlert(null);
     }, 3000);
   }
 
@@ -17,8 +17,8 @@ const StateProvider = (props) => {
       value={{
         modalOpen,
         setModalOpen,
-        notification,
-        setNotification,
+        alert,
+        setAlert,
       }}
     >
       {props.children}

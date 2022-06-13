@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router";
 
 // utils
 import { RemoveScroll } from "react-remove-scroll";
@@ -7,14 +8,17 @@ import { RemoveScroll } from "react-remove-scroll";
 import styles from "./Home.module.scss";
 
 // components
-import { Card, Button, Modal } from "../../components";
+import { Card, Button, Modal, Alert } from "../../components";
 
 // contexts
 import { Context } from "../../contexts/context";
 
 function Home() {
   // context
-  const { modalOpen, setModalOpen } = useContext(Context);
+  const { modalOpen, setModalOpen, alert, setAlert } = useContext(Context);
+
+  // navigate
+  const navigate = useNavigate();
 
   return (
     <div className={styles.container}>
@@ -23,7 +27,16 @@ function Home() {
           <Button onClick={() => setModalOpen(true)} small secondary>
             Sort
           </Button>
-          <Button onClick={() => setModalOpen(true)} small secondary>
+          <Button
+            onClick={() =>
+              setAlert({
+                type: "success",
+                message: "Successfully added to cart",
+              })
+            }
+            small
+            secondary
+          >
             Select
           </Button>
         </div>
@@ -38,18 +51,18 @@ function Home() {
           <Card />
         </div>
         <div className={styles.add}>
-          <Button medium primary>
+          <Button onClick={() => navigate("./add")} medium primary>
             Add new actor
           </Button>
         </div>
       </div>
-
       {modalOpen && (
         <>
           <Modal>hi from modal</Modal>
           <RemoveScroll />
         </>
       )}
+      {alert && <Alert type={alert.type} message={alert.message}></Alert>}
     </div>
   );
 }
