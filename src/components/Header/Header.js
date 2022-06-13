@@ -4,7 +4,11 @@ import React from "react";
 import styles from "./Header.module.scss";
 
 function Header() {
-  return <div className={styles.container}>Header</div>;
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.logo}>ActoKedavra</h1>
+    </div>
+  );
 }
 
 export default Header;
