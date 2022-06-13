@@ -29,16 +29,24 @@
       display: flex;
       flex-direction: column;
 
+      > span {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 22px;
+        color: $color-red-400;
+        margin-top: 8px;
+      }
+
       > label {
         font-weight: 400;
         font-size: 15px;
         line-height: 18px;
         color: $color-body;
-        margin-bottom: 1rem;
+        margin-top: 24px;
       }
 
       > input {
-        margin-bottom: 1.5rem;
+        margin-top: 1rem;
         border-radius: 10px;
         background-color: $color-input;
         padding: 1rem;
@@ -65,4 +73,9 @@
       }
     }
   }
+}
+
+.error {
+  background-color: #ffe5f2 !important;
+  border: 2px solid #ed2e7e !important;
 }
