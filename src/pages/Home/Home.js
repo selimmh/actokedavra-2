@@ -45,10 +45,10 @@ function Home() {
     getActors().then((res) => setActors(res));
   }, []);
 
-  // refetch on delete
+  // refetch actors
   useEffect(() => {
     getActors().then((res) => setActors(res));
-  }, [popupOpen]);
+  }, [actorToDelete]);
 
   // sort open
   const [sortOpen, setSortOpen] = useState(false);
@@ -136,9 +136,13 @@ function Home() {
                   description={actor.description}
                   hobbies={actor.hobbies}
                   onDelete={() => {
-                    // deleteActor(actor.id);
-                    setPopupOpen(true);
+                    deleteActor(actor.id);
+                    setAlert({
+                      type: "success",
+                      message: "Actor deleted.",
+                    });
                     setActorToDelete(actor);
+                    // setPopupOpen(true);
                   }}
                   onEdit={() => {
                     navigate(`/edit/${actor.id}`);
@@ -147,12 +151,14 @@ function Home() {
                 />
               ))}
             </div>
-            <div className={styles.add}>
-              {actors?.length <= 7 ? (
+            {actors?.length <= 7 ? (
+              <div className={styles.add}>
                 <Button onClick={() => navigate("./add")} medium primary>
                   Add new actor
                 </Button>
-              ) : (
+              </div>
+            ) : (
+              <div className={styles.addDisabled}>
                 <Button
                   onClick={() =>
                     setAlert({
@@ -165,8 +171,8 @@ function Home() {
                 >
                   Add new actor
                 </Button>
-              )}
-            </div>
+              </div>
+            )}
           </div>
 
           {/* modal sort */}

@@ -19,7 +19,7 @@ const StateProvider = (props) => {
   if (alert) {
     setTimeout(() => {
       setAlert(null);
-    }, 2000);
+    }, 4000);
   }
 
   return (

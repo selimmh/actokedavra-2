@@ -54,23 +54,10 @@
     },
     {
       "id": 5,
-      "name": "Cornall McPaik",
+      "name": "Munmro Labus",
       "picture": "https://picsum.photos/200/300",
-      "occupation": "Research Associate",
-      "likes": 28,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?",
-      "hobbies": [
-        "Reading",
-        "Dancing",
-        "Watching movies"
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Yale Dykas",
-      "picture": "https://picsum.photos/200/300",
-      "occupation": "Software Engineer II",
-      "likes": 17,
+      "occupation": "Web Developer III",
+      "likes": 39,
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolor labore ullam sapiente recusandae voluptatibus! Eligendi consequuntur nesciunt totam aut?",
       "hobbies": [
         "Reading",

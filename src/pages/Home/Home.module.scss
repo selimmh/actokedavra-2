@@ -48,6 +48,18 @@
   }
 }
 
+.addDisabled {
+  margin: 32px 0;
+  width: 100%;
+  display: flex;
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  * {
+    width: 100%;
+  }
+}
+
 .delete {
   display: flex;
   flex-direction: column;
