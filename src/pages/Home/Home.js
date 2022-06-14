@@ -19,6 +19,9 @@ import { getActors, deleteActor, deleteAll } from "../../api/api";
 // page transition
 import { motion } from "framer-motion";
 
+// icons
+import { TbMoodSad } from "react-icons/tb";
+
 function Home() {
   // context
   const {
@@ -65,8 +68,7 @@ function Home() {
     }
   };
 
-  // handle delete all
-
+  // handle delete all (not functional)
   const handleDeleteAll = () => {
     if (allSelected) {
       deleteAll().then(() => {
@@ -96,7 +98,7 @@ function Home() {
         exit: { opacity: 0 },
       }}
     >
-      {actors.length > 1 ? (
+      {actors.length > 0 ? (
         <div className={styles.container}>
           <div className={styles.content}>
             <div className={styles.filters}>
@@ -146,7 +148,7 @@ function Home() {
               ))}
             </div>
             <div className={styles.add}>
-              {actors?.length <= 6 ? (
+              {actors?.length <= 7 ? (
                 <Button onClick={() => navigate("./add")} medium primary>
                   Add new actor
                 </Button>
@@ -267,7 +269,13 @@ function Home() {
           )}
         </div>
       ) : (
-        <div>no actors</div>
+        <div className={styles.noActors}>
+          <TbMoodSad className={styles.sad} />
+          <span>There are no actors here. Consider adding one.</span>
+          <Button onClick={() => navigate("./add")} medium primary>
+            Add new actor
+          </Button>
+        </div>
       )}
     </motion.div>
   );

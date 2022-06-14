@@ -137,4 +137,25 @@
 }
 
 .noActors {
+  padding-inline: 20px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .sad {
+    font-size: 5rem;
+    margin-bottom: 28px;
+  }
+
+  > span {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+    color: $color-off-black;
+    text-align: center;
+    margin-bottom: 24px;
+  }
 }
