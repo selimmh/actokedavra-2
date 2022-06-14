@@ -16,9 +16,12 @@ import { Context } from "../../contexts/context";
 // page transition
 import { motion } from "framer-motion";
 
+// icons
+import { BiArrowBack } from "react-icons/bi";
+
 function AddActor() {
   // context
-  const { alert, setAlert } = useContext(Context);
+  const { setAlert } = useContext(Context);
 
   // actor state
   const [actor, setActor] = useState({
@@ -77,6 +80,9 @@ function AddActor() {
     >
       <div className={styles.container}>
         <div className={styles.content}>
+          <button onClick={() => navigate("/")} className={styles.back}>
+            <BiArrowBack />
+          </button>
           <h1>Add new actor</h1>
 
           {/* form */}

@@ -22,17 +22,8 @@ function Card({
   onDelete,
   onEdit,
 }) {
-  // context
-  const { popupOpen, setPopupOpen } = useContext(Context);
-
   // read more state
   const [readmore, setReadmore] = useState(false);
-
-  // actor to delete
-  const [actorToDelete, setActorToDelete] = useState(null);
-
-  // actor to edit
-  const [actorToEdit, setActorToEdit] = useState(null);
 
   return (
     <div className={styles.container}>

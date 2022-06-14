@@ -3,16 +3,6 @@ import React from "react";
 // styles
 import styles from "./Button.module.scss";
 
-// types of buttons
-// primary
-// secondary
-
-// disabled
-
-// small
-// medium
-// large
-
 function Button({
   onClick,
   primary,

@@ -16,9 +16,12 @@ import { Context } from "../../contexts/context";
 // page transition
 import { motion } from "framer-motion";
 
+// icons
+import { BiArrowBack } from "react-icons/bi";
+
 function EditActor() {
   // context
-  const { alert, setAlert, actorToEdit } = useContext(Context);
+  const { setAlert, actorToEdit } = useContext(Context);
 
   // actor state
   const [actor, setActor] = useState({
@@ -78,6 +81,9 @@ function EditActor() {
     >
       <div className={styles.container}>
         <div className={styles.content}>
+          <button onClick={() => navigate("/")} className={styles.back}>
+            <BiArrowBack />
+          </button>
           <h1>Add new actor</h1>
 
           {/* form */}

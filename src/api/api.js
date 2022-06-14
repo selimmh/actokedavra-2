@@ -1,9 +1,7 @@
 import axios from "axios";
-
-// mock server
 const baseUrl = "http://localhost:8000/";
 
-// get all actors
+// get
 export const getActors = async () => {
   try {
     const response = await axios.get(baseUrl + "actors");
@@ -13,7 +11,7 @@ export const getActors = async () => {
   }
 };
 
-// add new actor
+// post
 export const addActor = async (actor) => {
   try {
     const response = await axios.post(baseUrl + "actors", actor);
@@ -23,7 +21,7 @@ export const addActor = async (actor) => {
   }
 };
 
-// edit actor
+// put
 export const editActor = async (actor) => {
   try {
     const response = await axios.put(baseUrl + "actors/" + actor.id, actor);
@@ -33,7 +31,7 @@ export const editActor = async (actor) => {
   }
 };
 
-// delete actor
+// delete
 export const deleteActor = async (id) => {
   try {
     const response = await axios.delete(baseUrl + "actors/" + id);

@@ -1,8 +1,5 @@
 import React, { useContext } from "react";
 
-// icons
-import { RiCloseLine } from "react-icons/ri";
-
 // context
 import { Context } from "../../contexts/context";
 

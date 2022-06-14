@@ -2,12 +2,13 @@
 @import "../../styles/mixins.scss";
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 50px 20px 57px 20px;
 
   .content {
     height: 100%;
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -20,6 +21,7 @@
       line-height: 40px;
       color: $color-off-black;
       margin-bottom: 2rem;
+      margin-top: 1rem;
     }
 
     > div {
@@ -48,6 +50,7 @@
         border-radius: 10px;
         background-color: $color-input;
         padding: 1rem;
+        transition: all 0.3s ease-in-out;
       }
 
       > textarea {
@@ -67,7 +70,12 @@
         font-weight: 600;
         font-size: 15px;
         line-height: 18px;
-        margin-top: 16px;
+        margin: 1rem 0;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -76,4 +84,18 @@
 .error {
   background-color: #ffe5f2 !important;
   border: 2px solid #ed2e7e !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.back {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 1.2rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
