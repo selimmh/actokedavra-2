@@ -40,3 +40,13 @@ export const deleteActor = async (id) => {
     console.error(error);
   }
 };
+
+// delete all
+export const deleteAll = async () => {
+  try {
+    const response = await axios.delete(baseUrl + "actors");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

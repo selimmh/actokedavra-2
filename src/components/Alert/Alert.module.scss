@@ -1,9 +1,19 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
+// fade in animation
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   position: fixed;
-  bottom: 1rem;
+  top: 1rem;
   left: 1rem;
   right: 1rem;
   display: flex;
@@ -11,6 +21,7 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
+  animation: fadeIn 0.3s ease-in;
 }
 
 .content {
