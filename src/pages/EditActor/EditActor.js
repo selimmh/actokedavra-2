@@ -50,13 +50,11 @@ function EditActor() {
       actor.description.length
     ) {
       editActor(actor).then((res) => {
-        if (res.status === 200) {
-          setAlert({
-            type: "success",
-            message: "Successfully added to cart",
-          });
-          navigate("/");
-        }
+        navigate("/");
+        setAlert({
+          type: "success",
+          message: "Actor edited successfully",
+        });
       });
     }
   };
@@ -151,7 +149,15 @@ function EditActor() {
               Update
             </Button>
 
-            <button onClick={() => navigate("/")}>
+            <button
+              onClick={() => {
+                navigate("/");
+                setAlert({
+                  type: "danger",
+                  message: "Your changes were not saved.",
+                });
+              }}
+            >
               <span>I changed my mind</span>
             </button>
           </div>

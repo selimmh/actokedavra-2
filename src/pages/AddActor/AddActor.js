@@ -49,19 +49,17 @@ function AddActor() {
       actor.description.length
     ) {
       addActor(actor).then((res) => {
-        if (res.status === 200) {
-          setAlert({
-            type: "success",
-            message: "Successfully added to cart",
-          });
-          navigate("/");
-        }
+        navigate("/");
+        setAlert({
+          type: "success",
+          message: "Actor added successfully",
+        });
       });
     }
   };
 
   // handle blur
-  const handleBlur = () => {};
+  const handleBlur = (e) => {};
 
   // navigate
   const navigate = useNavigate();
@@ -115,7 +113,7 @@ function AddActor() {
             {/* hobbies (comma seperated) */}
             <label>Hobbies (comma seperated)</label>
             <input
-              className={clicked && !actor.hobbies ? styles.error : ""}
+              className={clicked && !actor.hobbies.length ? styles.error : ""}
               type="text"
               name="hobbies"
               value={actor.hobbies}
@@ -150,7 +148,15 @@ function AddActor() {
               Add new actor
             </Button>
 
-            <button onClick={() => navigate("/")}>
+            <button
+              onClick={() => {
+                navigate("/");
+                setAlert({
+                  type: "warning",
+                  message: "Your changes were not saved.",
+                });
+              }}
+            >
               <span>I changed my mind</span>
             </button>
           </div>

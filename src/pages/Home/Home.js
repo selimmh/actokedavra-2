@@ -29,6 +29,8 @@ function Home() {
     popupOpen,
     setPopupOpen,
     setActorToEdit,
+    setActorToDelete,
+    actorToDelete,
   } = useContext(Context);
 
   // navigate
@@ -39,6 +41,11 @@ function Home() {
   useEffect(() => {
     getActors().then((res) => setActors(res));
   }, []);
+
+  // refetch on delete
+  useEffect(() => {
+    getActors().then((res) => setActors(res));
+  }, [popupOpen]);
 
   return (
     <motion.div
@@ -71,7 +78,11 @@ function Home() {
                 likes={actor.likes}
                 description={actor.description}
                 hobbies={actor.hobbies}
-                onDelete={() => deleteActor(actor.id)}
+                onDelete={() => {
+                  // deleteActor(actor.id);
+                  setPopupOpen(true);
+                  setActorToDelete(actor);
+                }}
                 onEdit={() => {
                   navigate(`/edit/${actor.id}`);
                   setActorToEdit(actor);
@@ -115,7 +126,33 @@ function Home() {
         {/* popup */}
         {popupOpen && (
           <>
-            <Popup>Hello from popup</Popup>
+            <Popup>
+              <div className={styles.delete}>
+                <h1>Are you sure?</h1>
+                <p>
+                  You are about to delete <span>{actorToDelete?.name}</span>
+                </p>
+                <div>
+                  <Button
+                    onClick={() => {
+                      deleteActor(actorToDelete?.id);
+                      setPopupOpen(false);
+                      setAlert({
+                        type: "success",
+                        message: "Actor deleted.",
+                      });
+                    }}
+                    medium
+                    secondary
+                  >
+                    Delete
+                  </Button>
+                  <Button onClick={() => setPopupOpen(false)} medium primary>
+                    Cancel
+                  </Button>
+                </div>
+              </div>
+            </Popup>
             <RemoveScroll />
           </>
         )}
