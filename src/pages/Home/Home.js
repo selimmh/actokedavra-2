@@ -47,6 +47,24 @@ function Home() {
     getActors().then((res) => setActors(res));
   }, [popupOpen]);
 
+  // sort open
+  const [sortOpen, setSortOpen] = useState(false);
+
+  // select open
+  const [selectOpen, setSelectOpen] = useState(false);
+
+  // all selected
+  const [allSelected, setAllSelected] = useState(false);
+
+  // sort actors by name asc or desc
+  const sortActors = (sort) => {
+    if (sort === "asc") {
+      setActors(actors.sort((a, b) => a.name.localeCompare(b.name)));
+    } else {
+      setActors(actors.sort((a, b) => b.name.localeCompare(a.name)));
+    }
+  };
+
   return (
     <motion.div
       initial="initial"
@@ -61,10 +79,26 @@ function Home() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.filters}>
-            <Button onClick={() => setModalOpen(true)} small secondary>
+            <Button
+              onClick={() => {
+                setModalOpen(true);
+                setSortOpen(true);
+                setSelectOpen(false);
+              }}
+              small
+              secondary
+            >
               Sort
             </Button>
-            <Button onClick={() => setModalOpen(true)} small secondary>
+            <Button
+              onClick={() => {
+                setModalOpen(true);
+                setSelectOpen(true);
+                setSortOpen(false);
+              }}
+              small
+              secondary
+            >
               Select
             </Button>
           </div>
@@ -112,10 +146,56 @@ function Home() {
           </div>
         </div>
 
-        {/* modal */}
-        {modalOpen && (
+        {/* modal sort */}
+        {modalOpen && sortOpen && (
           <>
-            <Modal>hi from modal</Modal>
+            <Modal title={"Select type of sort"}>
+              <div className={styles.modalSort}>
+                <Button
+                  onClick={() => {
+                    sortActors("asc");
+                    setModalOpen(false);
+                  }}
+                  medium
+                  secondary
+                >
+                  Ascending
+                </Button>
+                <Button
+                  onClick={() => {
+                    sortActors("desc");
+                    setModalOpen(false);
+                  }}
+                  medium
+                  secondary
+                >
+                  Descending
+                </Button>
+              </div>
+            </Modal>
+            <RemoveScroll />
+          </>
+        )}
+
+        {/* modal select */}
+        {modalOpen && selectOpen && (
+          <>
+            <Modal title={"0 Selected"}>
+              <div className={styles.modalSelect}>
+                <div>
+                  <label htmlFor="delete">Select all</label>
+                  <div
+                    onClick={() => setAllSelected(!allSelected)}
+                    className={`${styles.radio} ${
+                      allSelected && styles.active
+                    }`}
+                  ></div>
+                </div>
+                <Button medium secondary>
+                  Delete
+                </Button>
+              </div>
+            </Modal>
             <RemoveScroll />
           </>
         )}

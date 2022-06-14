@@ -84,3 +84,55 @@
     }
   }
 }
+
+.modalSort {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  > :first-child {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.modalSelect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  > :first-child {
+    margin-top: 37px;
+    margin-bottom: 37px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    color: $color-body;
+
+    .radio {
+      // circle with radio button
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid $color-body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $color-purple-primary;
+        opacity: 0.5;
+      }
+    }
+    .active {
+      background-color: $color-purple-primary;
+    }
+  }
+}

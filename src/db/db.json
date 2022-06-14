@@ -40,15 +40,15 @@
       ]
     },
     {
-      "name": "test",
+      "name": "aaatest",
       "picture": "https://picsum.photos/200/300",
-      "occupation": "test",
-      "likes": 42,
+      "occupation": "tet",
+      "likes": 91,
       "description": "test",
       "hobbies": [
         "test"
       ],
-      "id": 6
+      "id": 7
     }
   ]
 }

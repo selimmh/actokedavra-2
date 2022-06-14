@@ -9,7 +9,7 @@ import { Context } from "../../contexts/context";
 // styles
 import styles from "./Modal.module.scss";
 
-function Modal({ children }) {
+function Modal({ children, title }) {
   const { setModalOpen } = useContext(Context);
   return (
     <div className={styles.container}>
@@ -17,7 +17,17 @@ function Modal({ children }) {
       <div onClick={() => setModalOpen(false)} className={styles.backdrop} />
       {/* content */}
       <div className={styles.content}>
-        <div>{children}</div>
+        <div>
+          {/* title */}
+          <div className={styles.title}>
+            <h2>{title}</h2>
+            <button onClick={() => setModalOpen(false)}>
+              <RiCloseLine />
+            </button>
+          </div>
+          {/* body */}
+          <div className={styles.body}>{children}</div>
+        </div>
       </div>
     </div>
   );
