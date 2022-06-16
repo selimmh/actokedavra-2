@@ -7,7 +7,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 20px 57px 20px;
+  padding: 52px 20px 56px 20px;
+  @include medium {
+    padding: 108px 40px 108px 40px;
+  }
 }
 
 .content {
@@ -21,7 +24,12 @@
   margin-top: 22px;
   width: 100%;
   display: flex;
-  gap: 11px;
+  gap: 15px;
+
+  @include medium {
+    margin-top: 48px;
+    gap: 52px;
+  }
 
   * {
     width: 100%;
@@ -36,15 +44,24 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 16px 11px;
+
+  @include medium {
+    gap: 56px 40px;
+    margin-top: 80px;
+  }
 }
 
 .add {
   margin: 32px 0;
   width: 100%;
   display: flex;
+  justify-content: center;
 
   * {
     width: 100%;
+    max-width: 500px;
+    margin-top: 80px;
+    margin-bottom: 100px;
   }
 }
 

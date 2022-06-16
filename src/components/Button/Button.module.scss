@@ -32,6 +32,12 @@
     cursor: not-allowed;
     background-color: $color-purple-400;
   }
+
+  @include medium {
+    font-size: 24px;
+    line-height: 24px;
+    padding: 24px 32px;
+  }
 }
 
 .secondary {
@@ -69,6 +75,11 @@
     cursor: not-allowed;
     color: $color-purple-400;
     border-color: $color-purple-400;
+  }
+  @include medium {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 16px 24px;
   }
 }
 

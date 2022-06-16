@@ -11,9 +11,13 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.25rem;
   border: 1px solid $color-line;
   z-index: 40;
+  padding: 0 20px;
+
+  @include medium {
+    padding: 0 36px;
+  }
 }
 
 .logo {
@@ -21,6 +25,13 @@
   font-weight: 700;
   line-height: 15.6px;
   color: $color-off-black;
+  padding: 20px 0;
+
+  @include medium {
+    padding: 42px 0;
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .date {
@@ -28,4 +39,10 @@
   font-weight: 500;
   line-height: 15.6px;
   color: $color-off-black;
+
+  @include medium {
+    padding: 42px 0;
+    font-size: 20px;
+    line-height: 24px;
+  }
 }

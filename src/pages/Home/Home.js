@@ -98,7 +98,7 @@ function Home() {
         exit: { opacity: 0 },
       }}
     >
-      {actors.length > 0 ? (
+      {actors ? (
         <div className={styles.container}>
           <div className={styles.content}>
             <div className={styles.filters}>
